@@ -110,6 +110,13 @@ Pushed by the Tech Lead after all members have merged:
 
 ## How to run tests
 
+### Create the environment
+
+```bash
+python -m venv .venv
+source .venv/bin/activate # Windows: .venv\Scripts\Activate.ps1
+```
+
 ### Setup
 
 ```bash
