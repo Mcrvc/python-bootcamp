@@ -11,20 +11,29 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
       - run: pip install pytest ruff
-      - name: Run Ruff Linter
-        run: ruff check . --extend-exclude tests/
-      - name: Test every member explicitly
+      - name: Lint
+        run: ruff check . --select E4,E7,E9,F
+      - name: Test each member's week-1 homework
         run: |
-          for member_dir in members/*/; do
-            # If the directory is completely empty, skip to the next member
-            if [ -z "$(ls -A "$member_dir")" ]; then
-              continue
+          variant() {
+            case "$1" in
+              Mcrvc|mcrvc) echo 1 ;;
+              akagikay) echo 2 ;;
+              truonghuy0411) echo 3 ;;
+              tba0407) echo 4 ;;
+              *) echo 0 ;;   # members 5-7: own W1-4, no instructor test
+            esac
+          }
+          for dir in members/*/w1; do
+            [ -d "$dir" ] || continue
+            m=$(basename "$(dirname "$dir")")
+            v=$(variant "$m")
+            echo "== $m (variant $v)"
+            if [ "$v" = 0 ]; then
+              pytest -q tests/test_w1.py --member "$m" -k "not translate"
+            else
+              pytest -q tests/test_w1.py --member "$m" --variant "$v"
             fi
-            
-            username=$(basename "$member_dir")
-            echo "========================================"
-            echo "Running tests for: $username"
-            echo "========================================"
-            
-            pytest -q tests/ --member "$username"
           done
+      - name: No conflict markers
+        run: "! git grep -n -E '^(<<<<<<<|>>>>>>>)'"
