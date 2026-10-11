@@ -5,6 +5,19 @@ by comparison with C++ for 7 team members. Each member works in
 `members/<username>/w1|w2|w3/`, the team code lives in `shared/`, and every
 exercise is submitted through a pull request.
 
+## Member
+
+| No. | Student ID | Name                  | Github Username |
+|-----|------------|-----------------------|-----------------|
+| 1   | 25127048   | Trần Đức Hiển         | n3ykh           |
+| 2   | 25127066   | Phan Văn Trường Huy   | truonghuy0411   |
+| 3   | 25127269   | Trần Bảo Anh          | tba0407         |
+| 4   | 25127273   | Trương Bảo Anh        | tbanh2516-dot   |
+| 5   | 25127312   | Nguyễn Phúc Duy       | akagikay        |
+| 6   | 25127367   | Nguyễn Duy Khang      | ILoveCats123abc |
+| 7   | 25127439   | Đặng Vũ Thiện Nhân    | Mcrvc           |
+
+
 ## Structure
 
 ```text
@@ -32,10 +45,6 @@ python-bootcamp/
 |-- tests/
     |-- .gitkeep
 ```
-
-> Folder names use **underscores** and **lowercase**
-> (`mcrvc`, `ilovecats123abc`) because Python cannot import
-> a module with a hyphen or mixed case.
 
 ## Rules
 
@@ -99,8 +108,6 @@ Pushed by the Tech Lead after all members have merged:
 - [ ] link its issue (`Closes #N`)
 - [ ] pass CI (`pytest -q`, `ruff check`)
 - [ ] get 1 approval from another member
-- [ ] disclose AI use, or write `None`
-- [ ] be small and focused (≈ 100–300 changed lines)
 
 ### Review etiquette
 
