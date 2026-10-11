@@ -4,10 +4,11 @@ def primes_up_to(n: int) -> list[int]:
 
     Difference from C++:
     - In C++, fixed-size arrays or std::vector<bool> are typically pre-allocated.
-      In Python, list comprehension `[True] * (n + 1)` and dynamic list `.append()` 
+      In Python, list repetition `[True] * (n + 1)` and dynamic list `.append()`
       are used to handle memory management automatically and more Pythonically.
     """
-    if n < 2: return []
+    if n < 2:
+        return []
 
     isPrime = [True]*(n + 1)
 
@@ -18,7 +19,7 @@ def primes_up_to(n: int) -> list[int]:
 
     p = 3
     while p * p <= n:
-        if not isPrime[p]: 
+        if not isPrime[p]:
             p += 2
             continue
 
@@ -30,7 +31,8 @@ def primes_up_to(n: int) -> list[int]:
 
     primes = []
     for i in range(2, n + 1):
-        if not isPrime[i]: continue
+        if not isPrime[i]:
+            continue
 
         primes.append(i)
 

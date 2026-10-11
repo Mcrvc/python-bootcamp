@@ -10,6 +10,6 @@ def missing(credits: int, gpa: float) -> list[str]:
         
     if gpa < 2.0:
         neededGpa = 2 - gpa
-        result.append(f"need {neededGpa} GPA too low")
+        result.append(f"need {neededGpa:.2f} more GPA")
         
     return result
