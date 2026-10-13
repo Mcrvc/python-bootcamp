@@ -1,6 +1,6 @@
 from datetime import date, timedelta
 import pytest
-from shared.contract import Task, Block
+from shared.contract import Task
 from shared.study_planner.prioritise import prioritise, generate_blocks
 
 def test_prioritise_happy_case():
