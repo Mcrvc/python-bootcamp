@@ -1,6 +1,6 @@
 import pytest
 from datetime import date
-from shared.contract import Task, Block
+from shared.contract import Task
 from shared.study_planner.allocate import allocate
 
 
