@@ -1,4 +1,4 @@
-from datetime import date, timedelta
+from datetime import timedelta
 from shared.contract import Task
 
 def filter_upcoming(tasks, today, days) -> list[Task]:
