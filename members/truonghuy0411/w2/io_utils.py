@@ -2,47 +2,51 @@ import csv
 from datetime import date
 import json
 
-try:
-    from .models import Task
-except ImportError:
-    from models import Task
+from .models import Task
 
 
 def load_tasks(path) -> list[Task]:
-    tasks = []
-    with open(path, mode="r", encoding="utf-8", newline="") as f:
-        reader = csv.reader(f)
-        header = next(reader, None)  
+    taskList = []
 
-        for row in reader:
-            line_no = reader.line_num
-            if not row or len(row) != 4:
-                raise ValueError(f"Line {line_no}: Expected 4 columns, got {len(row) if row else 0}")
+    with open(path, mode="r", encoding="utf-8") as fileData:
+        csvReader = csv.reader(fileData)
+        next(csvReader, None) 
+
+        for rowData in csvReader:
+            lineNum = csvReader.line_num
+
+            if not rowData or len(rowData) != 4:
+                raise ValueError(f"Line {lineNum}: so luong cot khong hop le")
 
             try:
-                title = row[0].strip()
-                importance = int(row[1])
-                effort_h = float(row[2])
-                deadline = date.fromisoformat(row[3].strip())
+                taskTitle = rowData[0].strip()
+                taskImportance = int(rowData[1].strip())
+                taskEffort = float(rowData[2].strip())
+                taskDeadline = date.fromisoformat(rowData[3].strip())
 
-                task = Task(title=title, importance=importance, effort_h=effort_h, deadline=deadline)
-            except Exception as e:
-                raise ValueError(f"Line {line_no}: {e}") from e
+                newTask = Task(
+                    title=taskTitle,
+                    importance=taskImportance,
+                    effort_h=taskEffort,
+                    deadline=taskDeadline,
+                )
+                taskList.append(newTask)
+            except Exception as err:
+                raise ValueError(f"Line {lineNum}: {err}")
 
-            tasks.append(task)
-
-    return tasks
+    return taskList
 
 
 def save_json(tasks: list[Task], path) -> None:
-    data = [
-        {
-            "title": t.title,
-            "importance": t.importance,
-            "effort_h": t.effort_h,
-            "deadline": t.deadline.isoformat(),
+    dataList = []
+    for currentTask in tasks:
+        taskDict = {
+            "title": currentTask.title,
+            "importance": currentTask.importance,
+            "effort_h": currentTask.effort_h,
+            "deadline": str(currentTask.deadline),
         }
-        for t in tasks
-    ]
-    with open(path, mode="w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2)
+        dataList.append(taskDict)
+
+    with open(path, mode="w", encoding="utf-8") as outputFile:
+        json.dump(dataList, outputFile, indent=4)
