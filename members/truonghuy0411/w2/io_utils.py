@@ -16,7 +16,7 @@ def load_tasks(path) -> list[Task]:
             lineNum = csvReader.line_num
 
             if not rowData or len(rowData) != 4:
-                raise ValueError(f"Line {lineNum}: so luong cot khong hop le")
+                raise ValueError(f"line {lineNum}: invalid column count")
 
             try:
                 taskTitle = rowData[0].strip()
@@ -32,7 +32,7 @@ def load_tasks(path) -> list[Task]:
                 )
                 taskList.append(newTask)
             except Exception as err:
-                raise ValueError(f"Line {lineNum}: {err}")
+                raise ValueError(f"line {lineNum}: {err}")
 
     return taskList
 
