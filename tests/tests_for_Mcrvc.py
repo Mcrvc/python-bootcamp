@@ -1,5 +1,6 @@
 from members.Mcrvc.w1.translate import  binary_search
 
+
 def test_normal_list():
     inputList = [1,2,3,4,5,6,7,8,9,10]
     assert (binary_search(inputList, 5) == 4)

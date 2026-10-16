@@ -1,7 +1,8 @@
 from dataclasses import dataclass
 from datetime import date
-@dataclass
 
+
+@dataclass
 class Task:
     title: str
     importance: int

@@ -1,11 +1,12 @@
 from pathlib import Path
 from .io_utils import load_tasks
 
+
 def main():
     csvp = Path(__file__).parent / "tasks.csv"
 
     if not csvp.exists():
-        print(f"No sample csv found")
+        print("No sample csv found")
         return
     tasks = load_tasks(csvp)
     for i, task in enumerate(tasks, start = 1):
