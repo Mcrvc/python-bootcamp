@@ -2,7 +2,8 @@ import csv
 import json
 from datetime import date
 from pathlib import Path
-from models import Task
+
+from .models import Task
 
 
 def load_tasks(path) -> list[Task]:
@@ -35,8 +36,8 @@ def save_json(tasks: list[Task], path: Path) -> None:
         data.append({
             "title": task.title,
             "importance": task.importance,
-            "effort.h": task.effort_h,
-            "deadline": task.deadline
+            "effort_h": task.effort_h,
+            "deadline": task.deadline.isoformat()
         })
     with path.open(mode = "w", encoding = "utf-8") as f:
         json.dump(data, f, indent = 4)

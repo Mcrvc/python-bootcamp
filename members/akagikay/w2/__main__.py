@@ -1,9 +1,10 @@
 from pathlib import Path
+
 from .io_utils import load_tasks
 
 
 def main():
-    csvp = Path(__file__).parent / "tasks.csv"
+    csvp = Path(__file__).resolve().parents[3] / "samples" / "tasks.csv"
 
     if not csvp.exists():
         print("No sample csv found")

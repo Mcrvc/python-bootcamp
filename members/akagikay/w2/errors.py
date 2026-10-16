@@ -1,4 +1,4 @@
-from models import Task
+from .models import Task
 
 
 class InfeasiblePlan(Exception):
@@ -11,5 +11,5 @@ class InfeasiblePlan(Exception):
         return f"Infeasible plan: Required {self.needed_h} hours, available hours: {self.available_h} hours"
 
 def check_feasible(tasks: list[Task], available_h: float):
-    if needed := sum(t.effort_h for t in tasks) > available_h:
+    if (needed := sum(t.effort_h for t in tasks)) > available_h:
         raise InfeasiblePlan(needed, available_h)
