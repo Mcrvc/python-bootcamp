@@ -4,12 +4,11 @@ Run with: pytest tests/test_w1_7.py (from the repo root).
 """
 import sys
 from pathlib import Path
+import pytest
 
 BOOTCAMP = Path(__file__).resolve().parents[1]
 if str(BOOTCAMP) not in sys.path:
     sys.path.insert(0, str(BOOTCAMP))
-
-import pytest
 
 from members.n3ykh.w1 import grades, rules, text_tools, timetable
 from members.n3ykh.w1.translate import sum_of_int
