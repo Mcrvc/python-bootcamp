@@ -1,18 +1,18 @@
 """W2-4 cross-tests by Mcrvc for member 7 (n3ykh) W1 functions.
 
-Run with: pytest tests/test_w1_7.py (from the repo root).
+Run with: pytest tests/tests_for_n3ykh.py (from the repo root).
 """
 import sys
 from pathlib import Path
+
+import pytest
 
 BOOTCAMP = Path(__file__).resolve().parents[1]
 if str(BOOTCAMP) not in sys.path:
     sys.path.insert(0, str(BOOTCAMP))
 
-import pytest
-
-from members.n3ykh.w1 import grades, rules, text_tools, timetable
-from members.n3ykh.w1.translate import sum_of_int
+from members.n3ykh.w1 import grades, rules, text_tools, timetable  # noqa: E402
+from members.n3ykh.w1.translate import sum_of_int  # noqa: E402
 
 
 def test_summary_values():
