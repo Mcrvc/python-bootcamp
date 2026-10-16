@@ -1,4 +1,3 @@
-import pytest
 from members.ILoveCats123abc.w1.translate import reverse_array
 
 def test_reverse_even_elements():
