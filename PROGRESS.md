@@ -10,7 +10,7 @@
 | Mcrvc           | w2   | #??   | #??  | truonghuy0411   |  ?/5  | ??    |
 | akagikay        | w2   | #??   | #??  | tba0407         |  ?/5  | ??    |
 | truonghuy0411   | w2   | #??   | #??  | tbanh2516-dot   |  ?/5  | ??    |
-| tba0407         | w2   | #??   | #??  | ILoveCats123abc |  ?/5  | ??    |
+| tba0407         | w2   | #45   | #46  | ILoveCats123abc |  3/3  | 3     |
 | tbanh2516-dot   | w2   | #??   | #??  | n3ykh           |  ?/5  | ??    |
 | ILoveCats123abc | w2   | #??   | #??  | Mcrvc           |  ?/5  | ??    |
 | n3ykh           | w2   | #??   | #??  | akagikay        |  ?/5  | ?/    |
