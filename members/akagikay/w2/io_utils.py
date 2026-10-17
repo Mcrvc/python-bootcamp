@@ -26,7 +26,7 @@ def load_tasks(path) -> list[Task]:
                 )
                 tasks.append(task)
             except (ValueError, KeyError, TypeError) as e:
-                raise ValueError(f"Invalid row at {line} : {e}")
+                raise ValueError(f"Invalid row at line {line} : {e}")
     return tasks
 
 def save_json(tasks: list[Task], path: Path) -> None:
