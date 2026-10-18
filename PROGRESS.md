@@ -7,10 +7,10 @@
 | tbanh2516-dot   | w1   | #27   | #28  | ILoveCats123abc |  5/5  | 2     |
 | ILoveCats123abc | w1   | #22   | #21  | n3ykh           |  5/5  | 3     |
 | n3ykh           | w1   | #12   | #15  | Mcrvc           |  5/5  | 36    |
-| Mcrvc           | w2   | #??   | #??  | truonghuy0411   |  ?/5  | ??    |
+| Mcrvc           | w2   | #49   | #50  | truonghuy0411   |  3/3  | 5     |
 | akagikay        | w2   | #??   | #??  | tba0407         |  ?/5  | ??    |
 | truonghuy0411   | w2   | #??   | #??  | tbanh2516-dot   |  ?/5  | ??    |
-| tba0407         | w2   | #??   | #??  | ILoveCats123abc |  ?/5  | ??    |
+| tba0407         | w2   | #45   | #46  | ILoveCats123abc |  3/3  | 3     |
 | tbanh2516-dot   | w2   | #??   | #??  | n3ykh           |  ?/5  | ??    |
-| ILoveCats123abc | w2   | #??   | #??  | Mcrvc           |  ?/5  | ??    |
+| ILoveCats123abc | w2   | #54   | #59  | Mcrvc           |  5/5  | 4.5   |
 | n3ykh           | w2   | #60   | #61  | akagikay        |  3/3  | 67    |

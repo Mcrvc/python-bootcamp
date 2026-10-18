@@ -1,6 +1,7 @@
 def summary(scores: list[float]) -> dict:
     if len(scores) == 0:
         raise ValueError("List cannot be empty")  
+    
     mn = float('inf')
     mx = float('-inf')
     mean = 0
@@ -12,11 +13,14 @@ def summary(scores: list[float]) -> dict:
         cnt += 1
     mean /= cnt
     mean = round(mean, 2)
-    scores.sort()
-    mid = len(scores) // 2
-    if len(scores) % 2 == 0:
-        median = (scores[mid - 1] + scores[mid]) / 2
+    
+    sorted_scores = sorted(scores)
+    mid = len(sorted_scores) // 2
+    
+    if len(sorted_scores) % 2 == 0:
+        median = (sorted_scores[mid - 1] + sorted_scores[mid]) / 2
     else:
-        median = scores[mid] 
+        median = sorted_scores[mid] 
+        
     median = round(median, 2)        
     return {'min': mn, 'max': mx, 'mean': mean, 'median': median}
