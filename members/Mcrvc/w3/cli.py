@@ -5,7 +5,6 @@ import sys
 from datetime import date
 
 from shared.study_planner.parse import parse_csv
-from .dates import parse_due
 
 
 def main() -> int:
