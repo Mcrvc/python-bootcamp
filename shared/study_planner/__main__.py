@@ -4,7 +4,6 @@ import argparse
 import sys
 from datetime import date
 
-from shared.contract import Task, Block
 from shared.study_planner.allocate import allocate
 from shared.study_planner.parse import parse_csv
 from shared.study_planner.prioritise import prioritise
