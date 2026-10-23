@@ -16,6 +16,18 @@ _WEEKDAYS = {
 
 
 def parse_due(date_str: str, today: date) -> date:
+    """Parse a due date from an ISO string, "tomorrow", "in N days", or a weekday name.
+
+    Args:
+        date_str: The due-date text to parse.
+        today: The reference date used for relative calculations.
+
+    Returns:
+        The parsed due date.
+
+    Raises:
+        ValueError: If the date text cannot be parsed.
+    """
     s = date_str.strip()
 
     try:

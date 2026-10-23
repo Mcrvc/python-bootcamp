@@ -8,6 +8,11 @@ from shared.study_planner.parse import parse_csv
 
 
 def main() -> int:
+    """Run the Week 3 CLI: load tasks, filter by hours, print with days-left.
+
+    Returns:
+        The process exit code (0 on success, 1 on error).
+    """
     parser = argparse.ArgumentParser(
         prog="python -m members.Mcrvc.w3.cli"
     )

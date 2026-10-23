@@ -4,10 +4,18 @@
 from math import ceil
 
 
-def analyse(pairs):
-    counts = {}
-    totals = {}
-    times_by_name = {}
+def analyse(pairs: list[tuple[str, float]]) -> dict:
+    """Compute per-name request statistics from (name, latency) pairs.
+
+    Args:
+        pairs: List of (name, latency_ms) tuples.
+
+    Returns:
+        A dict with "counts", "slowest", and "p95" keys.
+    """
+    counts: dict[str, int] = {}
+    totals: dict[str, float] = {}
+    times_by_name: dict[str, list[float]] = {}
 
     for name, time in pairs:
         counts[name] = counts.get(name, 0) + 1
