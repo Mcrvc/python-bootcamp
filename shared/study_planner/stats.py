@@ -1,6 +1,6 @@
 from datetime import date
 from typing import List
-from ..contract import Task, Block
+from shared.contract import Task, Block
 
 def calculate_stats(
     blocks: List[Block],
