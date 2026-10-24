@@ -20,4 +20,4 @@
 | tba0407         | w3   | #86   | #87  | n3ykh           |  4/4  | 4     |
 | tbanh2516-dot   | w3   | #??   | #??  | Mcrvc           |  ?/4  | ???   |
 | ILoveCats123abc | w3   | #??   | #??  | akagikay        |  ?/4  | ???   |
-| n3ykh           | w3   | #??   | #??  | truonghuy0411   |  ?/4  | ???   |
+| n3ykh           | w3   | #78   | #79  | truonghuy0411   |  4/4  | 68    |
