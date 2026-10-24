@@ -6,7 +6,12 @@ from pathlib import Path
 from .models import Task
 
 
-def load_tasks(path) -> list[Task]:
+def load_tasks(path: str | Path) -> list[Task]:
+    """Load tasks from a CSV file with title, importance, effort_h, deadline.
+
+    Raises:
+        ValueError: If any row has invalid data types.
+    """
     tasks = []
     path = Path(path)
     with path.open(mode = "r", encoding = "utf-8") as f:
@@ -30,6 +35,7 @@ def load_tasks(path) -> list[Task]:
     return tasks
 
 def save_json(tasks: list[Task], path: Path) -> None:
+    """Save tasks as a JSON array with ISO-format deadlines."""
     path = Path(path)
     data = []
     for task in tasks:

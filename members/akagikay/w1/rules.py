@@ -1,7 +1,9 @@
 def can_register_thesis(credits: int, gpa: float) -> bool:
+    """Return True when both thesis registration rules are met."""
     return credits >= 120 and gpa >= 2.0
 
 def missing(credits: int, gpa: float) -> list[str]:
+    """Return the list of unmet thesis registration requirements."""
     reasons = []
     if credits < 120:
         diffc = 120 - credits

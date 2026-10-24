@@ -1,5 +1,6 @@
 """Member 2"""
 def insertion_sort(arr: list[int]) -> list[int]:
+    """Sort ``arr`` in place using insertion sort and return it."""
     for i in range(1, len(arr)):
         key = arr[i]
         j = i - 1
@@ -8,7 +9,3 @@ def insertion_sort(arr: list[int]) -> list[int]:
             j -= 1
         arr[j + 1] = key
     return arr
-"""
-arr[-1] accesses the last element
-Passes list references by default. Modifies the original list directly in place.
-"""
