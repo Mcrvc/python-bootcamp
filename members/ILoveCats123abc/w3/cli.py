@@ -6,7 +6,7 @@ from datetime import date, datetime
 from pathlib import Path
 
 from members.ILoveCats123abc.w2.io_utils import load_tasks
-from members.ILoveCats123abc.w2.models import Task
+
 
 def main():
     """Run the study planner CLI tool to parse tasks, allocate study hours, and display the plan."""
@@ -50,8 +50,8 @@ def main():
         sys.exit(1)
 
     try:
-        tasks = load_tasks(csv_file)
-    except Exception as e:
+        tasks = load_tasks(str(csv_file))
+    except (FileNotFoundError, ValueError) as e:
         print(f"Error reading CSV file: {e}", file=sys.stderr)
         sys.exit(1)
 

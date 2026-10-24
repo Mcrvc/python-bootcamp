@@ -1,7 +1,8 @@
 """Analyze chat log stats for the study planner."""
 
 import math
-from collections import defaultdict, Counter
+from collections import Counter, defaultdict
+
 
 def analyse(pairs: list[tuple[str, float]]) -> dict:
     """Analyze request counts, P95 latency per route, and find the slowest route."""

@@ -18,7 +18,7 @@ _WEEKDAYS = {
 def parse_due(text: str, today: date) -> date:
     """Calculate the actual date from human-readable text relative to today."""
     if not isinstance(text, str):
-        raise ValueError(f"due text must be a string, got {type(text).__name__}")
+        raise TypeError(f"due text must be a string, got {type(text).__name__}")
 
     key = text.strip().lower()
     if not key:
