@@ -4,7 +4,7 @@ from .models import Task
 
 class InfeasiblePlan(Exception):
     """Exception raised when the total task effort exceeds available hours."""
-    def __init__(self, needed_h: float, available_h: float):
+    def __init__(self, needed_h: float, available_h: float) -> None:
         self.needed_h = needed_h
         self.available_h = available_h
         super().__init__(
