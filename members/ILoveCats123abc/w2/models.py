@@ -12,7 +12,7 @@ class Task:
     effort_h: float
     deadline: date
   
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         """Validate that importance is within valid range of 1 to 5."""
         if not 1 <= self.importance <= 5:
             raise ValueError("importance must be 1-5")
