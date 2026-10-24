@@ -19,5 +19,5 @@
 | truonghuy0411   | w3   | #??   | #??  | ILoveCats123abc |  ?/4  | ???   |
 | tba0407         | w3   | #??   | #??  | n3ykh           |  ?/4  | ???   |
 | tbanh2516-dot   | w3   | #??   | #??  | Mcrvc           |  ?/4  | ???   |
-| ILoveCats123abc | w3   | #??   | #??  | akagikay        |  ?/4  | ???   |
+| ILoveCats123abc | w3   | #85   | #93  | akagikay        |  4/4  | 5.5   |
 | n3ykh           | w3   | #??   | #??  | truonghuy0411   |  ?/4  | ???   |
