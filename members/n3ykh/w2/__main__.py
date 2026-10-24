@@ -1,4 +1,5 @@
 """Entry point for running: python -m members.n3ykh.w2"""
+
 from __future__ import annotations
 
 import sys
@@ -12,6 +13,7 @@ DEFAULT_CSV = ROOT_DIR / "samples" / "tasks.csv"
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Load tasks from a CSV file and print them."""
     args = sys.argv[1:] if argv is None else argv
     csv_path = Path(args[0]) if args else DEFAULT_CSV
 
