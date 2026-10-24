@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import argparse
 import sys
-from datetime import date, datetime, timezone
+from datetime import UTC, date, datetime
 from pathlib import Path
 
 from members.truonghuy0411.w2.io_utils import load_tasks
@@ -74,7 +74,7 @@ def main() -> None:
         reference_date = (
             date.fromisoformat(args.today)
             if args.today
-            else datetime.now(timezone.utc).date()
+            else datetime.now(UTC).date()        
         )
         tasks = load_tasks(file_path)
         ordered_tasks = prioritise(tasks, today=reference_date)
