@@ -11,15 +11,35 @@ from ..w2.models import Task
 
 @dataclass
 class Block:
+    """A task scheduled into a number of hours tonight."""
+
     task: Task
     hours: float
 
 
 def _priority(task: Task, today: date) -> float:
+    """Return the priority score: importance per day left until the deadline."""
     return task.importance / max(1, task.days_left(today))
 
 
 def build_blocks(tasks: Sequence[Task], today: date, hours: float) -> list[Block]:
+    """Fill ``hours`` with tasks, highest priority first.
+
+    Overdue tasks (deadline before ``today``) are skipped. The last task
+    may be scheduled partially when the remaining hours are smaller than
+    its effort.
+
+    Args:
+        tasks: Candidate tasks, any order.
+        today: Reference date used for prioritisation.
+        hours: Hours available tonight.
+
+    Returns:
+        The scheduled blocks.
+
+    Raises:
+        ValueError: If ``hours`` is negative.
+    """
     if hours < 0:
         raise ValueError("hours must be >= 0")
 
@@ -27,6 +47,8 @@ def build_blocks(tasks: Sequence[Task], today: date, hours: float) -> list[Block
     blocks: list[Block] = []
     remaining = float(hours)
     for task in ordered:
+        if task.deadline < today:
+            continue
         if remaining <= 0:
             break
         chunk = min(task.effort_h, remaining)
@@ -38,6 +60,7 @@ def build_blocks(tasks: Sequence[Task], today: date, hours: float) -> list[Block
 
 
 def format_plan(blocks: Sequence[Block]) -> str:
+    """Render blocks as the ``Tonight (...)`` plan with dotted leaders."""
     if not blocks:
         return "No tasks scheduled."
 
@@ -51,6 +74,7 @@ def format_plan(blocks: Sequence[Block]) -> str:
 
 
 def _parse_date(text: str) -> date:
+    """Convert an ISO date from the command line or fail with a clear message."""
     try:
         return date.fromisoformat(text)
     except ValueError:
@@ -60,6 +84,14 @@ def _parse_date(text: str) -> date:
 
 
 def main(argv: Sequence[str] | None = None) -> int:
+    """Run the command-line study planner.
+
+    Args:
+        argv: Command-line arguments; defaults to ``sys.argv[1:]``.
+
+    Returns:
+        The exit code: 0 on success, 1 on bad input (e.g. a missing file).
+    """
     parser = argparse.ArgumentParser(
         prog="python -m members.akagikay.w3.cli",
         description="Print a study plan for tonight from a task CSV file.",

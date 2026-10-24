@@ -22,6 +22,13 @@ _IN_DAYS = re.compile(r"in (\d+) days?")
 
 
 def parse_due(text: str, today: date) -> date:
+    """Parse a due date from free text relative to ``today``.
+
+    Accepts ISO dates ("2026-10-30"), "today", "tomorrow",
+    "in 3 days" / "in 1 day", and weekday names ("Fri", "Friday")
+    resolving to the next occurrence (never today). Unknown or
+    out-of-range text raises ValueError.
+    """
     cleaned = text.strip().lower()
 
     try:
@@ -36,12 +43,18 @@ def parse_due(text: str, today: date) -> date:
 
     match = _IN_DAYS.fullmatch(cleaned)
     if match:
-        return today + timedelta(days=int(match.group(1)))
+        try:
+            return today + timedelta(days=int(match.group(1)))
+        except OverflowError as err:
+            raise ValueError(f"unknown due date: {text!r}") from err
 
     if cleaned in _WEEKDAYS:
         delta = (_WEEKDAYS[cleaned] - today.weekday()) % 7
         if delta == 0:
             delta = 7
-        return today + timedelta(days=delta)
+        try:
+            return today + timedelta(days=delta)
+        except OverflowError as err:
+            raise ValueError(f"unknown due date: {text!r}") from err
 
     raise ValueError(f"unknown due date: {text!r}")

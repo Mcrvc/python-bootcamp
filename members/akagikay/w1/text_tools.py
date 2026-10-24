@@ -1,4 +1,5 @@
 def word_count(text: str) -> dict[str, int]:
+    """Count word occurrences, ignoring punctuation and case."""
     count = {}
     for chara in ".,!?;:":
         text = text.replace(chara, "")
@@ -8,6 +9,7 @@ def word_count(text: str) -> dict[str, int]:
 
 
 def top_k(text: str, k: int) -> list[tuple[str, int]]:
+    """Return the ``k`` most frequent words, ties broken alphabetically."""
     if k <= 0:
         return []
     count = word_count(text)
