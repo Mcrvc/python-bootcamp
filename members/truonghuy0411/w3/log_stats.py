@@ -1,3 +1,5 @@
+"""Log statistics and latency analysis."""
+
 from __future__ import annotations
 
 import math
@@ -6,6 +8,7 @@ from typing import Any
 
 
 def analyse(pairs: list[tuple[str, float | int]]) -> dict[str, Any]:
+    """Analyze request route latency pairs and compute p95 percentiles."""
     if not pairs:
         return {
             "counts": Counter(),

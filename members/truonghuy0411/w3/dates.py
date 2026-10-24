@@ -1,3 +1,4 @@
+"""Date parsing utilities for study planner."""
 from __future__ import annotations
 
 import re
@@ -25,6 +26,7 @@ IN_DAYS_PATTERN = re.compile(r"^in\s+(\d+)\s+days?$", re.IGNORECASE)
 
 
 def parse_due(text: str, today: date) -> date:
+    """Parse human-readable due text into a concrete date object."""
     if not isinstance(text, str):
         raise TypeError("Input text must be a string")
 

@@ -1,3 +1,4 @@
+"""Command-line tool for study planner."""
 from __future__ import annotations
 
 import argparse
@@ -10,6 +11,7 @@ from members.truonghuy0411.w2.models import Task
 
 
 def prioritise(tasks: list[Task], today: date) -> list[Task]:
+    """Sort tasks by descending importance and earliest deadline."""
     return sorted(
         tasks,
         key=lambda t: (-t.importance, t.deadline),
@@ -17,6 +19,7 @@ def prioritise(tasks: list[Task], today: date) -> list[Task]:
 
 
 def allocate(tasks: list[Task], max_hours: float) -> list[Task]:
+    """Allocate tasks that fit within the available study hours."""
     allocated: list[Task] = []
     total_time = 0.0
     for task in tasks:
@@ -27,6 +30,7 @@ def allocate(tasks: list[Task], max_hours: float) -> list[Task]:
 
 
 def render(allocated_tasks: list[Task], total_hours: float) -> str:
+    """Render formatted plan text for allocated tasks."""
     lines: list[str] = [f"Tonight ({total_hours:.1f} h):"]
     for idx, task in enumerate(allocated_tasks, start=1):
         prefix = f"  {idx}. {task.title} "
@@ -38,6 +42,7 @@ def render(allocated_tasks: list[Task], total_hours: float) -> str:
 
 
 def build_parser() -> argparse.ArgumentParser:
+    """Build command-line argument parser."""
     parser = argparse.ArgumentParser(description="Study planner CLI")
     parser.add_argument("tasks_file", type=str, help="Path to tasks CSV file")
     parser.add_argument(
@@ -56,6 +61,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main() -> None:
+    """Main entry point for study planner CLI."""
     parser = build_parser()
     args = parser.parse_args()
 
