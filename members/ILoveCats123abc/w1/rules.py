@@ -1,7 +1,11 @@
+"""Missing credits/gpa checker."""
+
 def can_register_thesis(credits: int, gpa: float) -> bool:
+    """Check whether credits and GPA meet the thesis requirements."""
     return (credits >= 120 and gpa >= 2.0)
 
-def missing(credits, gpa) -> list[str]:
+def missing(credits: int, gpa: float) -> list[str]:
+    """Return human-readable reasons if credits or GPA are below requirements."""
     reasons = []
     if credits < 120:
         missing_credits = 120-credits

@@ -1,9 +1,11 @@
+"""Command-line interface to load, validate, and display study planner tasks."""
+
 import argparse
 import sys
 from datetime import date
 
-from .io_utils import load_tasks
 from .errors import InfeasiblePlan, check_feasible
+from .io_utils import load_tasks
 
 
 def main() -> int:
