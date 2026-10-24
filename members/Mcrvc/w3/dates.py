@@ -1,8 +1,8 @@
 """Due-date parsing for relative and ISO date strings."""
 
 
-from datetime import date, timedelta
 import re
+from datetime import date, timedelta
 
 _WEEKDAYS = {
     "mon": 0,
@@ -27,6 +27,7 @@ def parse_due(date_str: str, today: date) -> date:
 
     Raises:
         ValueError: If the date text cannot be parsed.
+
     """
     s = date_str.strip()
 
