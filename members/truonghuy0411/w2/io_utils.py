@@ -1,16 +1,20 @@
+"""CSV and JSON I/O utilities for tasks."""
+
 import csv
-from datetime import date
 import json
+from datetime import date
+from pathlib import Path
 
 from .models import Task
 
 
-def load_tasks(path) -> list[Task]:
+def load_tasks(path: str | Path) -> list[Task]:
+    """Load task items from a CSV file."""
     taskList = []
 
     with open(path, mode="r", encoding="utf-8") as fileData:
         csvReader = csv.reader(fileData)
-        next(csvReader, None) 
+        next(csvReader, None)
 
         for rowData in csvReader:
             lineNum = csvReader.line_num
@@ -31,13 +35,14 @@ def load_tasks(path) -> list[Task]:
                     deadline=taskDeadline,
                 )
                 taskList.append(newTask)
-            except Exception as err:
-                raise ValueError(f"line {lineNum}: {err}")
+            except (ValueError, TypeError) as err:
+                raise ValueError(f"line {lineNum}: {err}") from err
 
     return taskList
 
 
-def save_json(tasks: list[Task], path) -> None:
+def save_json(tasks: list[Task], path: str | Path) -> None:
+    """Save task items to a JSON file."""
     dataList = []
     for currentTask in tasks:
         taskDict = {
@@ -49,4 +54,4 @@ def save_json(tasks: list[Task], path) -> None:
         dataList.append(taskDict)
 
     with open(path, mode="w", encoding="utf-8") as outputFile:
-        json.dump(dataList, outputFile, indent=4)
+        json.dump(dataList, outputFile, indent=4)
