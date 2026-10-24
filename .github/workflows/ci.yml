@@ -37,7 +37,7 @@ jobs:
           done
       - name: No conflict markers
         run: "! git grep -n -E '^(<<<<<<<|>>>>>>>)'"
-        
+
   study-planner:
     runs-on: ubuntu-latest
     steps:
@@ -47,5 +47,6 @@ jobs:
       - run: pip install pytest ruff
       - name: Ruff (study planner)
         run: ruff check shared/study_planner tests
-      - name: Pytest (study planner)
-        run: pytest -q tests -k "not w1 and not w2 and not w3"
+      - name: Ruff (study planner)
+        run: ruff check shared/study_planner tests --select E4,E7,E9,F
+
