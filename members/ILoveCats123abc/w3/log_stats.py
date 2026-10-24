@@ -4,7 +4,7 @@ import math
 from collections import Counter, defaultdict
 
 
-def analyse(pairs: list[tuple[str, float]]) -> dict:
+def analyse(pairs: list[tuple[str, float]]) -> dict[str, object]:
     """Analyze request counts, P95 latency per route, and find the slowest route."""
     if not pairs:
         return {

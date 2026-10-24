@@ -5,10 +5,10 @@ import sys
 from datetime import date, datetime
 from pathlib import Path
 
-from members.ILoveCats123abc.w2.io_utils import load_tasks
+from ..w2.io_utils import load_tasks
 
 
-def main():
+def main() -> None:
     """Run the study planner CLI tool to parse tasks, allocate study hours, and display the plan."""
     parser = argparse.ArgumentParser(
         description="Study planner CLI tool from CSV tasks."

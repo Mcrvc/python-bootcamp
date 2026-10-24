@@ -1,6 +1,6 @@
 """Calculate statistical summary (min, max, mean, median) for student scores."""
 
-def summary(scores: list[float]) -> dict:
+def summary(scores: list[float]) -> dict[str, float]:
     """Calculate min, max, mean, and median from a list of scores."""
     if not scores:
         raise ValueError("Empty score list")
