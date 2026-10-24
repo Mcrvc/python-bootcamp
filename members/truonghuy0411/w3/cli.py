@@ -74,7 +74,7 @@ def main() -> None:
         reference_date = (
             date.fromisoformat(args.today)
             if args.today
-            else datetime.now(UTC).date()        
+            else datetime.now(UTC).date()
         )
         tasks = load_tasks(file_path)
         ordered_tasks = prioritise(tasks, today=reference_date)

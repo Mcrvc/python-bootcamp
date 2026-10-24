@@ -1,4 +1,8 @@
-def summary(scores: list[float]) -> dict:
+"""Grade summary calculations."""
+
+
+def summary(scores: list[float]) -> dict[str, float]:
+    """Calculate summary statistics (min, max, mean, median) for a list of scores."""
     if not scores:
         raise ValueError("scores list cannot be empty!")
     minVal = min(scores)
@@ -10,7 +14,7 @@ def summary(scores: list[float]) -> dict:
     n = len(sortedScores)
 
     if n % 2 != 0:
-        medianVal =  sortedScores[n // 2]
+        medianVal = sortedScores[n // 2]
     else:
         mid1 = sortedScores[(n // 2) - 1]
         mid2 = sortedScores[(n // 2)]
@@ -22,5 +26,5 @@ def summary(scores: list[float]) -> dict:
         "min": minVal,
         "max": maxVal,
         "mean": meanVal,
-        "median": medianVal
-    }
+        "median": medianVal,
+    }
