@@ -1,3 +1,5 @@
+"""Load and save helpers for task data."""
+
 import csv
 import json
 from datetime import datetime
@@ -7,7 +9,8 @@ from members.Mcrvc.w2.models import Task
 
 
 def load_tasks(path: str | Path) -> list[Task]:
-    tasks = []
+    """Load tasks from a CSV file with title, importance, effort_h, and deadline columns."""
+    tasks: list[Task] = []
     with open(path, encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for line_num, row in enumerate(reader, start=2):
@@ -24,7 +27,8 @@ def load_tasks(path: str | Path) -> list[Task]:
 
 
 def save_json(tasks: list[Task], path: str | Path) -> None:
-    data = []
+    """Save tasks to a JSON file as a list of task dicts."""
+    data: list[dict[str, object]] = []
     for t in tasks:
         data.append({
             "title": t.title,
