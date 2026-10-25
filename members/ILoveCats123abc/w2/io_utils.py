@@ -1,10 +1,14 @@
+"""Read tasks and save information for the study planner."""
+
 import csv
 import json
 from datetime import date
 
 from .models import Task
 
+
 def load_tasks(path: str) -> list[Task]:
+    """Load tasks from a CSV file."""
     tasks: list[Task] = []
 
     with open(path, newline="", encoding="utf-8") as f:
@@ -34,6 +38,7 @@ def load_tasks(path: str) -> list[Task]:
 
 
 def save_json(tasks: list[Task], path: str) -> None:
+    """Save a list of tasks to a JSON file."""
     data = [
         {
             "title": t.title,

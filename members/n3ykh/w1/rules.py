@@ -1,4 +1,5 @@
-def missing(credits, gpa) -> list[str]:
+def missing(credits: int, gpa: float) -> list[str]:
+    """Return messages describing unmet graduation requirements."""
     answer = []
     if credits < 120:
         dif_cre = 120 - credits
@@ -6,7 +7,9 @@ def missing(credits, gpa) -> list[str]:
     if gpa < 2.0:
         dif_gpa = 2.0 - gpa
         answer.append(f"need {dif_gpa} more gpa")
-    return answer        
+    return answer
+
 
 def can_register_thesis(credits: int, gpa: float) -> bool:
+    """Return whether the student meets the thesis registration requirements."""
     return credits >= 120 and gpa >= 2.0

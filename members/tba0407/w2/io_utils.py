@@ -8,7 +8,8 @@ from .models import Task
 
 
 def load_tasks(path: str | Path) -> list[Task]:
-    tasks = []
+    """Load tasks from a CSV file and validate each row."""
+    tasks: list[Task] = []
 
     with Path(path).open(encoding="utf-8", newline="") as file:
         reader = csv.DictReader(file)
@@ -30,7 +31,8 @@ def load_tasks(path: str | Path) -> list[Task]:
 
 
 def save_json(tasks: list[Task], path: str | Path) -> None:
-    data = []
+    """Save tasks to a JSON file with ISO-formatted deadlines."""
+    data: list[dict[str, object]] = []
 
     for task in tasks:
         item = asdict(task)
