@@ -15,7 +15,7 @@
 | ILoveCats123abc | w2   | #54   | #59  | Mcrvc           |  3/3  | 4.5   |
 | n3ykh           | w2   | #60   | #61  | akagikay        |  3/3  | 67    |
 | Mcrvc           | w3   | #??   | #??  | tba0407         |  ?/4  | ???   |
-| akagikay        | w3   | #??   | #??  | banh2516-dot    |  ?/4  | ???   |
+| akagikay        | w3   | #83   | #84  | banh2516-dot    |  4/4  | 4     |
 | truonghuy0411   | w3   | #??   | #??  | ILoveCats123abc |  ?/4  | ???   |
 | tba0407         | w3   | #??   | #??  | n3ykh           |  ?/4  | ???   |
 | tbanh2516-dot   | w3   | #??   | #??  | Mcrvc           |  ?/4  | ???   |
