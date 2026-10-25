@@ -1,5 +1,8 @@
+"""Word counting and top-k helpers."""
+
 def word_count(text: str) -> dict[str, int]:
-    count = {}
+    """Count word frequencies in the text, ignoring punctuation and case."""
+    count: dict[str, int] = {}
     for ch in ".,!?;:":
         text = text.replace(ch, "")
     words = text.lower().split()
@@ -11,10 +14,12 @@ def word_count(text: str) -> dict[str, int]:
     return count
 
 
-def getFreq(item):
-    return item[1]  
+def getFreq(item: tuple[str, int]) -> int:
+    """Return the frequency value used for sorting."""
+    return item[1]
 
 def top_k(text: str, k: int) -> list[tuple[str, int]]:
+    """Return the top k words with their frequencies, sorted by frequency."""
     if k <= 0:
         return []
     count = word_count(text)

@@ -1,4 +1,4 @@
-"""W1-4 (member 5) Palindrome check.
+"""W1 (member 5) Palindrome check.
 
 Problem: Write a function that returns True if a string reads the same
 forwards and backwards, ignoring case and non-alphanumeric characters;
@@ -11,6 +11,7 @@ toward the middle; in Python we can reverse a string with slicing
 
 
 def is_palindrome(s: str) -> bool:
+    """Return True if a string is a palindrome, ignoring case and non-alphanumeric characters."""
     s = s.lower()
-    s = ''.join(ch for ch in s if ch.isalnum())
+    s = "".join(ch for ch in s if ch.isalnum())
     return s == s[::-1]

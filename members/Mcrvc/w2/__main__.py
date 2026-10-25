@@ -1,3 +1,5 @@
+"""Week 2 CLI entry point that prints the sample plan."""
+
 from datetime import date
 from pathlib import Path
 
@@ -8,6 +10,7 @@ SAMPLE = ROOT / "samples" / "tasks.csv"
 
 
 def main() -> None:
+    """Print the sample study plan with days-left for each task."""
     try:
         tasks = load_tasks(SAMPLE)
     except FileNotFoundError:

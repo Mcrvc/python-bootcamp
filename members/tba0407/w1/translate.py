@@ -1,6 +1,5 @@
 def primes_up_to(n: int) -> list[int]:
-    """
-    Finds all prime numbers up to n using the Sieve of Eratosthenes.
+    """Find all primes up to ``n`` using the Sieve of Eratosthenes.
 
     Difference from C++:
     - In C++, fixed-size arrays or std::vector<bool> are typically pre-allocated.
@@ -10,28 +9,27 @@ def primes_up_to(n: int) -> list[int]:
     if n < 2:
         return []
 
-    isPrime = [True]*(n + 1)
+    is_prime = [True] * (n + 1)
 
-    isPrime[0] = isPrime[1] = False
+    is_prime[0] = is_prime[1] = False
 
     for i in range(4, n + 1, 2):
-        isPrime[i] = False
+        is_prime[i] = False
 
     p = 3
     while p * p <= n:
-        if not isPrime[p]:
+        if not is_prime[p]:
             p += 2
             continue
 
         for i in range(p * p, n + 1, 2 * p):
-            isPrime[i] = False
+            is_prime[i] = False
 
         p += 2
 
-
-    primes = []
+    primes: list[int] = []
     for i in range(2, n + 1):
-        if not isPrime[i]:
+        if not is_prime[i]:
             continue
 
         primes.append(i)
